@@ -31,3 +31,9 @@ celery -A todolist.celery_app worker --loglevel=info
 ```
 celery -A todolist.celery_app beat --loglevel=info
 ```
+- затем с нового терминала в корне проекта включаем вертуальное окружение и включаем бота
+```
+python bot.py
+```
+- вот username бота @todolistforchatlabsbot, также сейчас бот работает так что после каждого выключения и включения бота необходимо удалить юезра с бд что иначе нынешнея версия не узнает id пользователя 
+
