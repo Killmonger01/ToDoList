@@ -23,3 +23,11 @@ python manage.py createsuperuser
 ```
 python manage.py runserver
 ```
+- с нового терминала нужно активировать вертуальное окружение в корне проекта затем перейти в директерию с manage.py и запустить celery
+```
+celery -A todolist.celery_app worker --loglevel=info
+```
+- делаем тоже самое с нового терминала но уже прописываем эту команду
+```
+celery -A todolist.celery_app beat --loglevel=info
+```
