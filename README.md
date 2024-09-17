@@ -19,3 +19,7 @@ python manage.py migrate
 ```
 python manage.py createsuperuser
 ```
+- запускаем джанго приложение
+```
+python manage.py runserver
+```
