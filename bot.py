@@ -37,17 +37,6 @@ async def fetch_categories():
                 print(f"Ошибка при получении категорий: {response.status}")
                 return {}
 
-async def fetch_user(user_id):
-    url = f"http://127.0.0.1:8000/api/users/{user_id}/"
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url) as response:
-            if response.status == 200:
-                await response.json()
-                return   # Возвращаем данные пользователя
-            else:
-                print(f"Ошибка при получении пользователя: {response.status}")
-                return None
-
 async def fetch_category_id(category_name):
     url = "http://127.0.0.1:8000/api/categories/"
     async with aiohttp.ClientSession() as session:
@@ -92,7 +81,6 @@ async def getter(dialog_manager: DialogManager, **kwargs):
     global user_id_global
     if user_id_global is None:
         return None
-    user = await fetch_user(user_id_global)
     url = "http://127.0.0.1:8000/api/tasks/"
     category_id = await fetch_category_id(dialog_manager.find("task_category").get_value())
     task_data = {
